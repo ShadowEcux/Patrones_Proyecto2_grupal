@@ -14,17 +14,17 @@ try {
     //Server settings
     $mail->SMTPDebug = 2;                   //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.mailtrap.io';                     //Set the SMTP server to send through
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'a90c6bffa1776e';                     //SMTP username
-    $mail->Password   = '1a79f7a21fbcfb';                               //SMTP password
+    $mail->Username   = 'carloscarbajalrojas14@gmail.com';                     //SMTP username
+    $mail->Password   = 'gqoakcctjpqwlish';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 2525;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-    $mail->SMTPSecure = 'tls';
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->SMTPSecure = 'smtp';
     //Recipients
     $mail->setFrom('from@example.com', 'Mailer');
-    $mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
-    $mail->addAddress('ellen@example.com');               //Name is optional
+    $mail->addAddress('carloscarbajalrojas@hotmail.com', 'Carlos Carbajal');     //Add a recipient
+    // $mail->addAddress('ellen@example.com');               //Name is optional
     $mail->addReplyTo('info@example.com', 'Information');
     $mail->addCC('cc@example.com');
     $mail->addBCC('bcc@example.com');
