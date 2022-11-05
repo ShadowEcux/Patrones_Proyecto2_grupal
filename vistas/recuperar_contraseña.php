@@ -56,8 +56,7 @@ if (!isset($_SESSION["nombre"]))
         <script src="../public/js/bootstrap.min.js"></script>
          <!-- Bootbox -->
         <script src="../public/js/bootbox.min.js"></script>
-    
-    
+          
       </body>
     </html> 
   ';

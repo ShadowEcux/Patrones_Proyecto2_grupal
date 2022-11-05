@@ -102,6 +102,11 @@ Class Usuario
 		$sql="SELECT idusuario,nombre,num_documento FROM usuario WHERE email='$email' AND condicion='1'"; 
     	return ejecutarConsulta($sql);  
 	}
+	public function cambiar($id,$contraseña)
+	{
+		$sql="UPDATE usuario SET clave = '$contraseña' where idusuario= $id"; 
+    	return ejecutarConsulta($sql);  
+	}
 }
 
 ?>

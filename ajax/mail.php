@@ -8,13 +8,18 @@ if ($email = $_POST['email']) {
     $res = $usuario->recuperar($email);
     $fetch=$res->fetch_object();
     if ($fetch) {
-        $token = rand(0,9999);
+        $token = rand(1, 9999);
         $mail = new Mail();
         $res = $mail->sendEmail($email, $token);
+        // setcookie('token',0,0);
+        setcookie('token',$token,time()+3600,  '/');
+        setcookie('user',$fetch->idusuario,time()+3600,  '/');
         if ($res) {
-            echo "mensaje enviado";
+            header('Location: ../ajax/index.php');
         }
-        // setcookie('token',$token,time()+360);
+        else {
+            echo "Ha ocurrido algo mal..";
+        }
     }
 }
 else{

@@ -18,8 +18,21 @@ $cargo=isset($_POST["cargo"])? limpiarCadena($_POST["cargo"]):"";
 $login=isset($_POST["login"])? limpiarCadena($_POST["login"]):"";
 $clave=isset($_POST["clave"])? limpiarCadena($_POST["clave"]):"";
 $imagen=isset($_POST["imagen"])? limpiarCadena($_POST["imagen"]):"";
+$contraseña=isset($_POST["password"])? limpiarCadena($_POST["password"]):"";
 
 switch ($_GET["op"]){
+	case 'cambiarContraseña':
+		$contraseña=hash("SHA256",$contraseña);
+		$res = $usuario->cambiar($_COOKIE['user'],$contraseña);
+		if ($res) {
+			header("Location: ../vistas/login.html");
+			echo"Cambiado correctamente";
+		}
+		else{
+			header("Location: ../vistas/login.html");
+			echo"error";
+		}
+		break;
 	case 'guardaryeditar':
 		if (!isset($_SESSION["nombre"]))
 		{
