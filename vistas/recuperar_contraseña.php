@@ -42,6 +42,7 @@ if (!isset($_SESSION["nombre"]))
               </div>
                 <div class="">
                   <button type="submit" class="btn btn-primary btn-block btn-flat">Recuperar</button>
+                  <a href="/vistas/login.html">Iniciar Sesion</a>
                 </div><!-- /.col -->
               </div>
             </form>
