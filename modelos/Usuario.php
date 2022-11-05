@@ -95,6 +95,13 @@ Class Usuario
     	$sql="SELECT idusuario,nombre,tipo_documento,num_documento,telefono,email,cargo,imagen,login FROM usuario WHERE login='$login' AND clave='$clave' AND condicion='1'"; 
     	return ejecutarConsulta($sql);  
     }
+
+	//Funcion para verificar dni - recuperar contraseña
+	public function recuperar($email)
+	{
+		$sql="SELECT idusuario,nombre,num_documento FROM usuario WHERE email='$email' AND condicion='1'"; 
+    	return ejecutarConsulta($sql);  
+	}
 }
 
 ?>
