@@ -351,7 +351,7 @@ function addCols( $tab )
 	$this->Line( $r1, $y1+6, $r1+$r2, $y1+6);
 	$colX = $r1;
 	$colonnes = $tab;
-	while ( list( $lib, $pos ) = each ($tab) )
+	foreach($colonnes as $lib => $pos)
 	{
 		$this->SetXY( $colX, $y1+2 );
 		$this->Cell( $pos, 1, $lib, 0, 0, "C");
@@ -364,7 +364,7 @@ function addLineFormat( $tab )
 {
 	global $format, $colonnes;
 	
-	while ( list( $lib, $pos ) = each ($colonnes) )
+	foreach($colonnes as $lib => $pos)
 	{
 		if ( isset( $tab["$lib"] ) )
 			$format[ $lib ] = $tab["$lib"];
@@ -404,7 +404,7 @@ function addLine( $ligne, $tab )
 	$maxSize      = $ligne;
 
 	reset( $colonnes );
-	while ( list( $lib, $pos ) = each ($colonnes) )
+	foreach($colonnes as $lib => $pos)
 	{
 		$longCell  = $pos -2;
 		$texte     = $tab[ $lib ];
