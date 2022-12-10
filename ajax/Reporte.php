@@ -10,11 +10,11 @@ require('../reportes/IngresosCreator.php');
 require('../reportes/ArticulosCreator.php');
 require('../reportes/CategoriasCreator.php');
 
-$empresa = 'Soluciones Innovadoras Perú S.A.C.';
+$empresa = 'Cirtec Perú';
 $documento = '20477157772';
-$direccion = 'Chongoyape, José Gálvez 1368';
+$direccion = 'Lima, Los rosales 123';
 $telefono = '931742904';
-$email = 'jcarlos.ad7@gmail.com';
+$email = 'cirtec.peru.2022@gmail.com';
 $logo = "../reportes/logo.jpg";
 $ext_logo = "jpg";
 $array = [
