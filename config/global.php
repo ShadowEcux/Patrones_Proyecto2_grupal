@@ -16,4 +16,7 @@ define("DB_ENCODE","utf8");
 
 //Definimos una constante como nombre del proyecto
 define("PRO_NOMBRE","ITVentas");
+
+//Definimos version pdf
+define('FPDF_VERSION','1.81');
 ?>
