@@ -18,48 +18,22 @@ class ReporteFactory
 {
     public static function crearReporte($tipo, $id, $array)
     {
-
-        switch ($tipo) {
-            case 'ticket':
-                $reporte = new TicketCreator($array);
-                $reporte->render($id);
-                break;
-            case 'factura':
-                $reporte = new FacturaCreator($array);
-                $reporte->render($id);
-                break;
-            case 'rptUsuarios':
-                $reporte = new UsersCreator($array);
-                $reporte->render();
-                break;
-            case 'rptVenta':
-                $reporte = new VentaCreator($array);
-                $reporte->render();
-                break;
-            case 'rptClientes':
-                $reporte = new ClientsCreator($array);
-                $reporte->render($id);
-                break;
-            case 'rptIngresos':
-                $reporte = new IngresosCreator($array);
-                $reporte->render($id);
-                break;
-            case 'rptProveedores':
-                $reporte = new ProvidersCreator($array);
-                $reporte->render($id);
-                break;
-            case 'rptArticulos':
-                $reporte = new ArticulosCreator($array);
-                $reporte->render($id);
-                break;
-            case 'rptCategorias':
-                $reporte = new CategoriasCreator($array);
-                $reporte->render($id);
-                break;
-            default:
-                echo "Archivo no encontrado de tipo: {$tipo}";
-
-                break;
+        try {
+        $reporte = match ($tipo) {
+            'ticket' => new TicketCreator($array),
+            'factura' => new FacturaCreator($array),
+            'rptUsuarios' => new UsersCreator($array),
+            'rptVenta' => new VentaCreator($array),
+            'rptClientes' => new ClientsCreator($array),
+            'rptIngresos' => new IngresosCreator($array),
+            'rptProveedores' => new ProvidersCreator($array),
+            'rptArticulos' => new ArticulosCreator($array),
+            'rptCategorias' => new CategoriasCreator($array),
+            default => throw new InvalidArgumentException("Archivo no encontrado de tipo: {$tipo}")
+        };
+            $reporte->render($id);
+        } catch (InvalidArgumentException $e) {
+            echo 'Mensaje: ' . $e->getMessage();
         }
     }
 }
