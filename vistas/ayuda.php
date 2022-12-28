@@ -1,14 +1,10 @@
 <?php
-//Activamos el almacenamiento en el buffer
-ob_start();
-session_start();
+require('../config/BaseHandler.php');
+require('../ajax/AutenticationHandler.php');
 
-if (!isset($_SESSION["nombre"]))
-{
-  header("Location: login.html");
-}
-else
-{
+$middleware = new BaseHandler();
+$middleware->setNext(new AutenticationHandler);
+
 require 'header.php';
 ?>
 <!--Contenido-->
@@ -38,8 +34,4 @@ require 'header.php';
   <!--Fin-Contenido-->
 <?php
 require 'footer.php';
-?>
-<?php 
-}
-ob_end_flush();
 ?>

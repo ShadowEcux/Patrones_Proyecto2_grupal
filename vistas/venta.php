@@ -1,18 +1,14 @@
 <?php
-//Activamos el almacenamiento en el buffer
-ob_start();
-session_start();
+require('../config/BaseHandler.php');
+require('../ajax/AutenticationHandler.php');
+require('../ajax/PermissionHandler.php');
 
-if (!isset($_SESSION["nombre"]))
-{
-  header("Location: login.html");
-}
-else
-{
+$middleware = new BaseHandler();
+$middleware->setNext(new AutenticationHandler);
+$middleware->setNext(new PermissionHandler('ventas'));
+
 require 'header.php';
 
-if ($_SESSION['ventas']==1)
-{
 ?>
 <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
@@ -175,18 +171,9 @@ if ($_SESSION['ventas']==1)
   </div>  
   <!-- Fin modal -->
 <?php
-}
-else
-{
-  require 'noacceso.php';
-}
-
 require 'footer.php';
 ?>
 <script type="text/javascript" src="scripts/venta.js"></script>
-<?php 
-}
-ob_end_flush();
-?>
+
 
 

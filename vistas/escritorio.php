@@ -1,17 +1,15 @@
 <?php
-//Activamos el almacenamiento en el buffer
-ob_start();
-session_start();
+require('../config/BaseHandler.php');
+require('../ajax/AutenticationHandler.php');
+require('../ajax/PermissionHandler.php');
 
-if (!isset($_SESSION["nombre"]))
-{
-  header("Location: login.html");
-}
-else
-{
+$middleware = new BaseHandler();
+$middleware->setNext(new AutenticationHandler);
+$middleware->setNext(new PermissionHandler('escritorio'));
+
+
 require 'header.php';
-if ($_SESSION['escritorio']==1)
-{
+
   require_once "../modelos/Consultas.php";
   $consulta = new Consultas();
   $rsptac = $consulta->totalcomprahoy();
@@ -125,11 +123,6 @@ if ($_SESSION['escritorio']==1)
     </div><!-- /.content-wrapper -->
   <!--Fin-Contenido-->
 <?php
-}
-else
-{
-  require 'noacceso.php';
-}
 
 require 'footer.php';
 ?>
@@ -232,11 +225,5 @@ var ventas = new Chart(ctx, {
 
 
 </script>
-
-
-<?php 
-}
-ob_end_flush();
-?>
 
 

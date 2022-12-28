@@ -1,25 +1,18 @@
-<!--Contenido-->
-      <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">        
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-              <div class="col-md-12">
-                  <div class="box">
-                    <div class="box-header with-border">
-                          <h1 class="box-title">Sin acceso</h1>
-                        <div class="box-tools pull-right">
-                        </div>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- centro -->
-                    
-                    
-                    <!--Fin centro -->
-                  </div><!-- /.box -->
-              </div><!-- /.col -->
-          </div><!-- /.row -->
-      </section><!-- /.content -->
+<!DOCTYPE html>
+<html lang="en">
 
-    </div><!-- /.content-wrapper -->
-  <!--Fin-Contenido-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sin acceso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="d-flex align-items-center justify-content-center vh-100 bg-secondary">
+        <h1 class="display-1 fw-bold text-white">Sin acceso</h1>
+    </div>
+  </body>
+
+</html>
